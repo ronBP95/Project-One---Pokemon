@@ -8,12 +8,17 @@ body {
 }
 
 .screen {
-    border: 2px solid black;
-    width: 400px;
-    height: 400px;
+    margin-top: 5em;
+    width: 360px;
+    height: 370px;
     background-color: white;
-    margin-top: 30em;
     position: absolute;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 .enemy {
@@ -24,8 +29,8 @@ body {
 #zard {
     margin-top: -2em;
     margin-left: 14.5em;
-    height: 90px;
-    width: 90px;
+    height: 70px;
+    width: 70px;
 }
 
 .screenmid {
@@ -34,8 +39,8 @@ body {
 }
 
 #char {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     margin-left: 2.5em;
 }
 
@@ -64,5 +69,9 @@ body {
 
 #gameboy {
     width: 40em;
-    position: relative;
+}
+
+h5 {
+    margin-left: 3em;
+    margin-bottom: 2em;
 }

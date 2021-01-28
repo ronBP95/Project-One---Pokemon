@@ -10,8 +10,14 @@ window.addEventListener('DOMContentLoaded', (e) => {
         document.getElementsByTagName("h5")[0].innerHTML = "Sorry, you're all out of Pokemon!"
     })
     itemButton.addEventListener("click", (e) => {
-        document.getElementsByTagName("h5")[0].innerHTML = "You used a potion! HP increased by 10."
-
+        document.getElementsByTagName("h5")[0].innerHTML = "You used a potion! HP increased by 15. Watch out! The enemy might have healed too."
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth += 15)
+        enemyPotion(0, 2)
+        potionCap()
+        enemyPotionCap()
+        noUsePotion()
+        hpUpPlayer()
+        hpUpEnemy()
     })
     runButton.addEventListener("click", (e) => {
         document.getElementsByTagName("h5")[0].innerHTML = "Why are you trying to run? We're trying to do a presentation."
@@ -19,44 +25,74 @@ window.addEventListener('DOMContentLoaded', (e) => {
     firstMove.addEventListener("click", (e) => {
         console.log(playerAttack(10, 15))
         enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= playerAttack(10, 15))
+        attackNote()
         enemyMoveSelect(0, 4)
         console.log(enemyMoveSelect(0, 4))
         checkEnemyAlive()
         checkPlayerAlive()
         enemyHpCheck()
         playerHpCheck()
+        playerWin()
+        playerLoss()
+        playerDraw()
         menu1.style.opacity = 1;
         menu2.style.opacity = 0;
+        menuVanishPlayer()
+        menuVanishEnemy()
     })
     secondMove.addEventListener("click", (e) => {
         console.log(playerAttack(15, 25))
         enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= playerAttack(15, 25))
+        attackNote()
+        enemyMoveSelect(0, 4)
+        console.log(enemyMoveSelect(0, 4))
         checkEnemyAlive()
         checkPlayerAlive()
         enemyHpCheck()
         playerHpCheck()
+        playerWin()
+        playerLoss()
+        playerDraw()
         menu1.style.opacity = 1;
         menu2.style.opacity = 0;
+        menuVanishPlayer()
+        menuVanishEnemy()
     })
     thirdMove.addEventListener("click", (e) => {
         console.log(playerAttack(25, 35))
         enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= playerAttack(25, 35))
+        attackNote()
+        enemyMoveSelect(0, 4)
+        console.log(enemyMoveSelect(0, 4))
         checkEnemyAlive()
         checkPlayerAlive()
         enemyHpCheck()
         playerHpCheck()
+        playerWin()
+        playerLoss()
+        playerDraw()
         menu1.style.opacity = 1;
         menu2.style.opacity = 0;
+        menuVanishPlayer()
+        menuVanishEnemy()
     })
     fourthMove.addEventListener("click", (e) => {
         console.log(playerAttack(40, 60))
         enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= playerAttack(40, 60))
+        attackNote()
+        enemyMoveSelect(0, 4)
+        console.log(enemyMoveSelect(0, 4))
         checkEnemyAlive()
         checkPlayerAlive()
         enemyHpCheck()
         playerHpCheck()
+        playerWin()
+        playerLoss()
+        playerDraw()
         menu1.style.opacity = 1;
         menu2.style.opacity = 0;
+        menuVanishPlayer()
+        menuVanishEnemy()
     })
 })
 
@@ -96,28 +132,28 @@ const playerAttack = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+const enemyAttack = (min, max) => {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
 
 
 // enemy retaliation 
 const enemyMoveSelect = (min, max) => {
     let enemyChoice = Math.floor(Math.random() * (max - min) + min);
     if (enemyChoice === 0) {
-        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= playerAttack(10, 15))
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= enemyAttack(6, 7))
     } else if (enemyChoice === 1) {
-        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= playerAttack(15, 25))    
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= enemyAttack(7, 8))    
     } else if (enemyChoice === 2) {
-        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= playerAttack(25, 30))
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= enemyAttack(8, 9))
     } else if (enemyChoice === 3) {
-        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= playerAttack(40, 60))
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= enemyAttack(9, 10))
+    } else {
+        console.log("error")
     }
     return enemyChoice
 }
-
-
-// for accuracy checks, set returnNum as a constant
-// const returnNum = Math.floor(Math.random() * (max - min) + min)
-
-    // create a function to check if HP drops below 0 to reprint 0 back as a HP: 0
 
 const checkEnemyAlive = () => {
     if (currentEnemyHealth <= 0) {
@@ -162,3 +198,96 @@ const playerHpCheck = () => {
     } else if (currentPlayerHealth <= 0)
         playerHpDisplay.src="assets/HP Bar Split/0 Bar HP.png"
     }
+
+const hpUpPlayer = () => {
+    if (currentPlayerHealth > 80) {
+        playerHpDisplay.src="assets/HP Bar Split/5 Bar HP.png"
+    } else if (currentPlayerHealth > 60 && currentPlayerHealth < 80) {
+        playerHpDisplay.src="assets/HP Bar Split/4 Bar HP.png"
+    } else if (currentPlayerHealth > 40 && currentPlayerHealth < 60) {
+        playerHpDisplay.src="assets/HP Bar Split/3 Bar HP.png"
+    } else if (currentPlayerHealth > 20 && currentPlayerHealth < 40) {
+        playerHpDisplay.src="assets/HP Bar Split/2 Bar HP.png"
+    } else if (currentPlayerHealth > 0 && currentPlayerHealth < 20) {
+        playerHpDisplay.src="assets/HP Bar Split/1 Bar HP.png"
+    }
+}
+
+const hpUpEnemy = () => {
+    if (currentEnemyHealth > 80) {
+        enemyHpDisplay.src="assets/HP Bar Split/5 Bar HP.png"
+    } else if (currentEnemyHealth > 60 && currentEnemyHealth < 80) {
+        enemyHpDisplay.src="assets/HP Bar Split/4 Bar HP.png"
+    } else if (currentEnemyHealth > 40 && currentEnemyHealth < 60) {
+        enemyHpDisplay.src="assets/HP Bar Split/3 Bar HP.png"
+    } else if (currentEnemyHealth > 20 && currentEnemyHealth < 40) {
+        enemyHpDisplay.src="assets/HP Bar Split/2 Bar HP.png"
+    } else if (currentEnemyHealth > 0 && currentEnemyHealth < 20) {
+        enemyHpDisplay.src="assets/HP Bar Split/1 Bar HP.png"
+    }
+}
+
+const potionCap = () => {
+    if (currentPlayerHealth >= 100) {
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = 100)
+    }
+}
+
+const enemyPotionCap = () => {
+    if (currentEnemyHealth >= 100) {
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = 100)
+        document.getElementsByTagName("h5")[0].innerHTML = "Your Pokemon is full health. Watch out! The enemy might have healed too!"
+    }
+}
+
+const noUsePotion = () => {
+    if (currentPlayerHealth >= 100) {
+        document.getElementsByTagName("h5")[0].innerHTML = "Your Pokemon is full health. Watch out! The enemy might have healed too!"
+    }
+}
+
+
+const enemyPotion = (min, max) => {
+    let potionChance = Math.floor(Math.random() * (max - min) + min);
+    if (potionChance === 1) {
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth += 15)
+    } else {
+        console.log("Potion was not used")
+    }
+}
+
+const playerLoss = () => {
+    if (currentPlayerHealth <= 0) {
+        document.getElementsByTagName("h5")[0].innerHTML = "Your pokemon fainted! Refresh the page to try again."
+    }
+}
+
+const playerWin = () => {
+    if (currentEnemyHealth <= 0) {
+        document.getElementsByTagName("h5")[0].innerHTML = "You won! You earned 5000 P. Refresh the page to find another pokemon."
+    }
+}
+
+const playerDraw = () => {
+    if (currentPlayerHealth <= 0 && currentEnemyHealth <= 0) {
+        document.getElementsByTagName("h5")[0].innerHTML = "It's a draw! Both pokemon fainted."
+    }
+}
+
+// if either the player or enemy faint, clear the menus
+const menuVanishPlayer = () => {
+    if (currentEnemyHealth <= 0) {
+        menu1.style.opacity = 0;
+    }
+}
+
+const menuVanishEnemy = () => {
+    if (currentPlayerHealth <= 0) {
+        menu1.style.opacity = 0;
+    }
+}
+
+const attackNote = () => {
+    return document.getElementsByTagName("h5")[0].innerHTML = "The player and enemy are trading haymakers!"
+}
+
