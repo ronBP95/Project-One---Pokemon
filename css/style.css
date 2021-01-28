@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: purple;
+}
+
+.screen {
+    border: 2px solid black;
+    width: 400px;
+    height: 400px;
+    background-color: white;
+}
+
+.enemy {
+    text-align: left;
+    list-style-type: none;
+}
+
+#zard {
+    margin-top: -2em;
+    margin-left: 14.5em;
+    height: 90px;
+    width: 90px;
+}
+
+.screenmid {
+    display: flex;
+    justify-content: space-between;
+}
+
+#char {
+    width: 90px;
+    height: 90px;
+    margin-left: 2.5em;
+}
+
+.player {
+    text-align: right;
+    list-style-type: none;
+    margin-right: 3.5em;
+    margin-top: 2.4em;
+}
+
+.screenbottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 2.75em;
+}
+
+.buttons {
+    font-size: 1px;
+    opacity: 1;
+}
+
+.moves {
+    opacity: 0;
+}
