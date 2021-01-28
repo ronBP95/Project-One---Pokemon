@@ -17,8 +17,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
         document.getElementsByTagName("h5")[0].innerHTML = "Why are you trying to run? We're trying to do a presentation."
     })
     firstMove.addEventListener("click", (e) => {
-        console.log(damageValue(10, 15))
-        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= damageValue(10, 15))
+        console.log(playerAttack(10, 15))
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= playerAttack(10, 15))
+        enemyMoveSelect(0, 4)
+        console.log(enemyMoveSelect(0, 4))
         checkEnemyAlive()
         checkPlayerAlive()
         enemyHpCheck()
@@ -27,8 +29,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
         menu2.style.opacity = 0;
     })
     secondMove.addEventListener("click", (e) => {
-        console.log(damageValue(15, 25))
-        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= damageValue(15, 25))
+        console.log(playerAttack(15, 25))
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= playerAttack(15, 25))
         checkEnemyAlive()
         checkPlayerAlive()
         enemyHpCheck()
@@ -37,8 +39,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
         menu2.style.opacity = 0;
     })
     thirdMove.addEventListener("click", (e) => {
-        console.log(damageValue(25, 35))
-        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= damageValue(25, 35))
+        console.log(playerAttack(25, 35))
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= playerAttack(25, 35))
         checkEnemyAlive()
         checkPlayerAlive()
         enemyHpCheck()
@@ -47,8 +49,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
         menu2.style.opacity = 0;
     })
     fourthMove.addEventListener("click", (e) => {
-        console.log(damageValue(40, 60))
-        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= damageValue(40, 60))
+        console.log(playerAttack(40, 60))
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= playerAttack(40, 60))
         checkEnemyAlive()
         checkPlayerAlive()
         enemyHpCheck()
@@ -58,8 +60,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
     })
 })
 
-// audio on load
-// audio on victory
+// audio on load **not implemented**
+// audio on victory **not implemented**
 
 // action buttons defined
 let fightButton = document.querySelector("#fight")
@@ -88,15 +90,27 @@ let enemyHpDisplay = document.querySelector("#enemyHpDisplay")
 let menu2 = document.querySelector(".moves")
 
 // sets the min max value of damage
-const damageValue = (min, max) => {
+const playerAttack = (min, max) => {
     // use a for loop here if (return < 1) else this to trigger the event
     // define returnNum ahead of time
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-// enemy retaliation **not working**
-const getRandomInt = (max) => {
-    return Math.floor(Math.random() * Math.floor(max));
+
+
+// enemy retaliation 
+const enemyMoveSelect = (min, max) => {
+    let enemyChoice = Math.floor(Math.random() * (max - min) + min);
+    if (enemyChoice === 0) {
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= playerAttack(10, 15))
+    } else if (enemyChoice === 1) {
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= playerAttack(15, 25))    
+    } else if (enemyChoice === 2) {
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= playerAttack(25, 30))
+    } else if (enemyChoice === 3) {
+        playerHealth.innerHTML = "HP: " + (currentPlayerHealth = currentPlayerHealth -= playerAttack(40, 60))
+    }
+    return enemyChoice
 }
 
 

@@ -12,6 +12,8 @@ body {
     width: 400px;
     height: 400px;
     background-color: white;
+    margin-top: 30em;
+    position: absolute;
 }
 
 .enemy {
@@ -58,4 +60,9 @@ body {
 
 .moves {
     opacity: 0;
+}
+
+#gameboy {
+    width: 40em;
+    position: relative;
 }
