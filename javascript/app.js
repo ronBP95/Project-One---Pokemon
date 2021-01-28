@@ -1,52 +1,65 @@
 window.addEventListener('DOMContentLoaded', (e) => {
     console.log("Javascript Loaded Correctly!");
-    enemyHealth.innerHTML = ("HP: " + currentHealth)
+    enemyHealth.innerHTML = ("HP: " + currentEnemyHealth)
     fightButton.addEventListener("click", (e) => {
         console.log("Fight Button Pushed!")
         menu1.style.opacity = 0;
         menu2.style.opacity = 1;
     })
     pkmnButton.addEventListener("click", (e) => {
-        console.log("PKMN Button Pushed!")
+        document.getElementsByTagName("h5")[0].innerHTML = "Sorry, you're all out of Pokemon!"
     })
     itemButton.addEventListener("click", (e) => {
-        console.log("Item Button Pushed!")
         document.getElementsByTagName("h5")[0].innerHTML = "You used a potion! HP increased by 10."
 
     })
     runButton.addEventListener("click", (e) => {
-        console.log("Run Button Pushed!")
         document.getElementsByTagName("h5")[0].innerHTML = "Why are you trying to run? We're trying to do a presentation."
     })
     firstMove.addEventListener("click", (e) => {
-        console.log("First Move Pushed!")
         console.log(damageValue(10, 15))
-        enemyHealth.innerHTML = "HP: " + (currentHealth - damageValue(10, 15))
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= damageValue(10, 15))
+        checkEnemyAlive()
+        checkPlayerAlive()
+        enemyHpCheck()
+        playerHpCheck()
         menu1.style.opacity = 1;
         menu2.style.opacity = 0;
     })
     secondMove.addEventListener("click", (e) => {
-        console.log("Second Move Pushed!")
         console.log(damageValue(15, 25))
-        enemyHealth.innerHTML = "HP: " + (currentHealth = currentHealth -= damageValue(15, 25))
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= damageValue(15, 25))
+        checkEnemyAlive()
+        checkPlayerAlive()
+        enemyHpCheck()
+        playerHpCheck()
         menu1.style.opacity = 1;
         menu2.style.opacity = 0;
     })
     thirdMove.addEventListener("click", (e) => {
-        console.log("Third Move Pushed!")
         console.log(damageValue(25, 35))
-        enemyHealth.innerHTML = "HP: " + (currentHealth -= damageValue(25, 35))
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= damageValue(25, 35))
+        checkEnemyAlive()
+        checkPlayerAlive()
+        enemyHpCheck()
+        playerHpCheck()
         menu1.style.opacity = 1;
         menu2.style.opacity = 0;
     })
     fourthMove.addEventListener("click", (e) => {
-        console.log("Fourth Move Pushed!")
         console.log(damageValue(40, 60))
-        enemyHealth.innerHTML = "HP: " + (currentHealth -= damageValue(40, 60))
+        enemyHealth.innerHTML = "HP: " + (currentEnemyHealth = currentEnemyHealth -= damageValue(40, 60))
+        checkEnemyAlive()
+        checkPlayerAlive()
+        enemyHpCheck()
+        playerHpCheck()
         menu1.style.opacity = 1;
         menu2.style.opacity = 0;
     })
 })
+
+// audio on load
+// audio on victory
 
 // action buttons defined
 let fightButton = document.querySelector("#fight")
@@ -65,7 +78,11 @@ let fourthMove = document.querySelector("#fireblast")
 
 // hp of players defined
 let enemyHealth = document.querySelector("#enemyHpBar")
-let currentHealth = 100;
+let playerHealth = document.querySelector("#playerHpBar")
+let currentEnemyHealth = 100;
+let currentPlayerHealth = 100;
+let playerHpDisplay = document.querySelector("#playerHpDisplay")
+let enemyHpDisplay = document.querySelector("#enemyHpDisplay")
 
 // menu 2 options
 let menu2 = document.querySelector(".moves")
@@ -74,9 +91,60 @@ let menu2 = document.querySelector(".moves")
 const damageValue = (min, max) => {
     // use a for loop here if (return < 1) else this to trigger the event
     // define returnNum ahead of time
-    return 
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
-const returnNum = Math.floor(Math.random() * (max - min) + min);
+// enemy retaliation **not working**
+const getRandomInt = (max) => {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+
+// for accuracy checks, set returnNum as a constant
+// const returnNum = Math.floor(Math.random() * (max - min) + min)
 
     // create a function to check if HP drops below 0 to reprint 0 back as a HP: 0
+
+const checkEnemyAlive = () => {
+    if (currentEnemyHealth <= 0) {
+        enemyHealth.innerHTML = "HP: " + 0
+    } else {
+        console.log("Enemy still Alive!")
+    }
+}
+
+const checkPlayerAlive = () => {
+    if (currentPlayerHealth <= 0) {
+        playerHealth.innerHTML = "HP: " + 0
+    } else {
+        console.log("Player still Alive!")
+    }
+}
+
+// function for hp bar update
+
+const enemyHpCheck = () => {
+    if (currentEnemyHealth < 80 && currentEnemyHealth > 60) {
+        enemyHpDisplay.src="assets/HP Bar Split/4 Bar HP.png"
+    } else if (currentEnemyHealth < 60 && currentEnemyHealth > 40) {
+        enemyHpDisplay.src="assets/HP Bar Split/3 Bar HP.png"
+    } else if (currentEnemyHealth < 40 && currentEnemyHealth > 20) {
+        enemyHpDisplay.src="assets/HP Bar Split/2 Bar HP.png"
+    } else if (currentEnemyHealth < 20 && currentEnemyHealth > 0) {
+        enemyHpDisplay.src="assets/HP Bar Split/1 Bar HP.png"
+    } else if (currentEnemyHealth <= 0)
+        enemyHpDisplay.src="assets/HP Bar Split/0 Bar HP.png"
+    }
+
+const playerHpCheck = () => {
+    if (currentPlayerHealth < 80 && currentPlayerHealth > 60) {
+        playerHpDisplay.src="assets/HP Bar Split/4 Bar HP.png"
+    } else if (currentPlayerHealth < 60 && currentPlayerHealth > 40) {
+        playerHpDisplay.src="assets/HP Bar Split/3 Bar HP.png"
+    } else if (currentPlayerHealth < 40 && currentPlayerHealth > 20) {
+        playerHpDisplay.src="assets/HP Bar Split/2 Bar HP.png"
+    } else if (currentPlayerHealth < 20 && currentPlayerHealth > 0) {
+        playerHpDisplay.src="assets/HP Bar Split/1 Bar HP.png"
+    } else if (currentPlayerHealth <= 0)
+        playerHpDisplay.src="assets/HP Bar Split/0 Bar HP.png"
+    }
