@@ -4,13 +4,17 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: purple;
+    background-image: url(/assets/pallet.png)
+}
+
+h1 {
+    margin-top: 1.75em;
 }
 
 .screen {
     margin-top: 5em;
     width: 360px;
-    height: 370px;
+    height: 375px;
     background-color: white;
     position: absolute;
 }
@@ -73,5 +77,5 @@ body {
 
 h5 {
     margin-left: 3em;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 }

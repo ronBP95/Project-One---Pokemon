@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', (e) => {
     console.log("Javascript Loaded Correctly!");
     enemyHealth.innerHTML = ("HP: " + currentEnemyHealth)
-    pokemonEncounter(1, 3)
+    pokemonEncounter(1, 152)
     fightButton.addEventListener("click", (e) => {
         console.log("Fight Button Pushed!")
         menu1.style.opacity = 0;
@@ -128,8 +128,6 @@ let menu2 = document.querySelector(".moves")
 
 // sets the min max value of damage
 const playerAttack = (min, max) => {
-    // use a for loop here if (return < 1) else this to trigger the event
-    // define returnNum ahead of time
     return Math.floor(Math.random() * (max - min) + min);
 }
 
@@ -271,7 +269,7 @@ const playerWin = () => {
 
 const playerDraw = () => {
     if (currentPlayerHealth <= 0 && currentEnemyHealth <= 0) {
-        document.getElementsByTagName("h5")[0].innerHTML = "It's a draw! Both pokemon fainted."
+        document.getElementsByTagName("h5")[0].innerHTML = "It's a draw! Both pokemon fainted. Refresh the page to try again."
     }
 }
 
@@ -292,17 +290,14 @@ const attackNote = () => {
     return document.getElementsByTagName("h5")[0].innerHTML = "The player and enemy have both attacked!"
 }
 
-let pokemonNames = ["BULBASAUR", "IVYSAUR", "VENUSAUR"]
+let pokemonNames = ["BULBASAUR", "IVYSAUR", "VENUSAUR", "CHARMANDER", "CHARMELEON", "CHARIZARD", "SQUIRTLE", "WARTORTLE", "BLASTOISE", "CATERPIE", "METAPOD","BUTTERFREE", "WEEDLE", "KAKUNA", "BEEDRILL", "PIDGEY", "PIDGEOTTO", "PIDGEOT", "RATTATA", "RATICATE", "SPEAROW", "FEAROW", "EKANS", "ARBOK", "PIKACHU", "RAICHU", "SANDSHREW", "SANDSLASH", "NIDORAN", "NIDORINA", "NIDOQUEEN", "NIDORAN", "NIDORINO", "NIDOKING", "CLEFAIRY", "CLEFABLE", "VULPIX", "NINETALES", "JIGGLYPUFF", "WIGGLYTUFF", "ZUBAT", "GOLBAT", "ODDISH", "GLOOM", "VILEPLUME", "PARAS", "PARASECT", "VENONAT", "VENOMOTH", "DIGLETT", "DUGTRIO", "MEOWTH", "PERSIAN", "PSYDUCK", "GOLDUCK", "MANKEY", "PRIMEAPE", "GROWLITHE", "ARCANINE", "POLIWAG", "POLIWHIRL", "POLIWRATH", "ABRA", "KADABRA", "ALAKAZAM", "MACHOP", "MACHOKE", "MACHAMP", "BELLSPROUT", "WEEPINBELL", "VICTREEBELL", "TENTACOOL", "TENTACRUEL", "GEODUDE", "GRAVELER", "GOLEM", "PONYTA", "RAPIDASH", "SLOWPOKE", "SLOWBRO", "MAGNEMITE", "MAGNETON", "FARFETCH'D", "DODUO", "DODRIO", "SEEL", "DEWGONG", "GRIMER", "MUK", "SHELLDER", "CLOYSTER", "GASTLY", "HAUNTER", "GENGAR", "ONIX", "DROWZEE", "HYPNO", "KRABBY", "KINGLER", "VOLTORB", "ELECTRODE", "EXEGGCUTE", "EXEGGUTOR", "CUBONE", "MAROWAK", "HITMONLEE", "HITMONCHAN", "LICKITUNG", "KOFFING", "WEEZING", "RHYHORN", "RHYDON", "CHANSEY", "TANGELA", "KANGASKHAN", "HORSEA", "SEADRA", "GOLDEEN", "SEAKING", "STARYU", "STARMIE", "MR.MIME", "SCYTHER", "JYNX", "ELECTABUZZ", "MAGMAR", "PINSIR", "TAUROS", "MAGIKARP", "GYARADOS", "LAPRAS", "DITTO", "EEVEE", "VAPOREON", "JOLTEON", "FLAREON", "PORYGON", "OMANYTE", "OMASTAR", "KABUTO", "KABUTOPS", "AERODACTYL", "SNORLAX", "ARTICUNO", "ZAPDOS", "MOLTRES", "DRATINI", "DRAGONAIR", "DRAGONITE", "MEWTWO", "MEW"]
 
 const pokemonEncounter = (min, max) => {
     let pokemonChoice = Math.floor(Math.random() * (max - min) + min);
     let pokemonSrc = `./assets/Sprites/${pokemonChoice}.png`
     document.getElementById("zard").src = pokemonSrc
-    for (let i=0; i < pokemonNames.length; i++) {
-        if (pokemonChoice === i) {
-            document.getElementById("wildPokeName").innerHTML = pokemonNames[0]
-        }
-    }
+    console.log(pokemonNames[pokemonChoice - 1])
+    document.querySelector("#poke").innerText = pokemonNames[pokemonChoice - 1]
 }
 
 
