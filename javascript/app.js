@@ -300,4 +300,4 @@ const pokemonEncounter = (min, max) => {
     document.querySelector("#poke").innerText = pokemonNames[pokemonChoice - 1]
 }
 
-
+console.log("hi")
