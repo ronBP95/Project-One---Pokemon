@@ -35,6 +35,7 @@ h1 {
     margin-left: 11.5em;
     height: 70px;
     width: 70px;
+    display: none;
 }
 
 .screenmid {
