@@ -4,7 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("https://ronbp95.github.io/pokemonback.png")
+    background-image: url(/assets/pokemonback.jpg);
 }
 
 h1 {
@@ -35,7 +35,6 @@ h1 {
     margin-left: 11.5em;
     height: 70px;
     width: 70px;
-    display: none;
 }
 
 .screenmid {
