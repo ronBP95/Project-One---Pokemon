@@ -4,7 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url(/assets/pokemonback.png)
+    background-image: url("https://ronbp95.github.io/pokemonback.png")
 }
 
 h1 {
