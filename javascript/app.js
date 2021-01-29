@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', (e) => {
     console.log("Javascript Loaded Correctly!");
     enemyHealth.innerHTML = ("HP: " + currentEnemyHealth)
+    pokemonEncounter(1, 3)
     fightButton.addEventListener("click", (e) => {
         console.log("Fight Button Pushed!")
         menu1.style.opacity = 0;
@@ -288,6 +289,20 @@ const menuVanishEnemy = () => {
 }
 
 const attackNote = () => {
-    return document.getElementsByTagName("h5")[0].innerHTML = "The player and enemy are trading haymakers!"
+    return document.getElementsByTagName("h5")[0].innerHTML = "The player and enemy have both attacked!"
 }
+
+let pokemonNames = ["BULBASAUR", "IVYSAUR", "VENUSAUR"]
+
+const pokemonEncounter = (min, max) => {
+    let pokemonChoice = Math.floor(Math.random() * (max - min) + min);
+    let pokemonSrc = `./assets/Sprites/${pokemonChoice}.png`
+    document.getElementById("zard").src = pokemonSrc
+    for (let i=0; i < pokemonNames.length; i++) {
+        if (pokemonChoice === i) {
+            document.getElementById("wildPokeName").innerHTML = pokemonNames[0]
+        }
+    }
+}
+
 
