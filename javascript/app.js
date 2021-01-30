@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
         hpUpEnemy()
     })
     runButton.addEventListener("click", (e) => {
-        document.getElementsByTagName("h5")[0].innerHTML = "Why are you trying to run? Go out there and fight!"
+        document.getElementsByTagName("h5")[0].innerHTML = "Why are you trying to run? We're trying to do a presentation!"
     })
     firstMove.addEventListener("click", (e) => {
         console.log(playerAttack(10, 15))
