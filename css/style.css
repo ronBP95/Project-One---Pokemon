@@ -5,6 +5,7 @@ body {
     align-items: center;
     text-align: center;
     background-image: url(/assets/pokemon.jpg);
+    background-color: cornflowerblue;
 }
 
 h1 {
