@@ -1,11 +1,8 @@
 {
-    "requires": true,
-    "lockfileVersion": 1,
-    "dependencies": {
-      "typescript": {
-        "version": "4.5.5",
-        "resolved": "https://registry.npmjs.org/typescript/-/typescript-4.5.5.tgz",
-        "integrity": "sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA=="
-      }
+    "name": "project-pokemon",
+    "description": "a really cool app",
+    "version": "1.0.0",
+    "engines": {
+      "node": "14.15.4"
     }
-}
+  }
