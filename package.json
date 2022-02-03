@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "pokemon app",
   "main": "app.js",
-  "dependencies": {
-    "typescript": "^4.5.5"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node javascript/app.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ronBP95/Project-One---Pokemon/issues"
+  },
+  "engines": {
+    "node": "16.13.2"
   },
   "homepage": "https://github.com/ronBP95/Project-One---Pokemon#readme"
 }
