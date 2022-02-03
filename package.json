@@ -1,8 +1,27 @@
 {
-    "name": "project-pokemon",
-    "description": "a really cool app",
-    "version": "1.0.0",
-    "engines": {
-      "node": "14.15.4"
-    }
-  }
+  "name": "project-pokemon",
+  "version": "1.0.0",
+  "description": "pokemon app",
+  "main": "app.js",
+  "dependencies": {
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronBP95/Project-One---Pokemon.git"
+  },
+  "keywords": [
+    "pokemon",
+    "app"
+  ],
+  "author": "ronBP95",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronBP95/Project-One---Pokemon/issues"
+  },
+  "homepage": "https://github.com/ronBP95/Project-One---Pokemon#readme"
+}
