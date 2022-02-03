@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', (e) => {
-    console.log("Javascript Loaded Correctly!");
+    // console.log("Javascript Loaded Correctly!"); <==== testing only
     enemyHealth.innerHTML = ("HP: " + currentEnemyHealth)
     pokemonEncounter(1, 152)
     fightButton.addEventListener("click", (e) => {

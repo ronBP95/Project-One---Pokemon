@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "pokemon app",
   "main": "app.js",
-  "dependencies": {
-    "domino": "^2.1.6",
-    "express": "^4.17.2"
-  },
   "scripts": {
     "test": "npm test",
     "start": "node javascript/app.js"
