@@ -294,7 +294,7 @@ let pokemonNames = ["BULBASAUR", "IVYSAUR", "VENUSAUR", "CHARMANDER", "CHARMELEO
 
 const pokemonEncounter = (min, max) => {
     let pokemonChoice = Math.floor(Math.random() * (max - min) + min);
-    let pokemonSrc = `./assets/sprites/${pokemonChoice}.png`
+    let pokemonSrc = `././assets/sprites/${pokemonChoice}.png`
     document.getElementById("zard").src = pokemonSrc
     console.log(pokemonNames[pokemonChoice - 1])
     document.querySelector("#poke").innerText = pokemonNames[pokemonChoice - 1]
