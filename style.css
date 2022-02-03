@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* background-image: url(/assets/pokemon.jpg); */
+    background-color: cornflowerblue;
+}
+
+h1 {
+    margin-top: 1.75em;
+}
+
+.screen {
+    margin-top: 5em;
+    width: 360px;
+    height: 374px;
+    background-color: white;
+    position: absolute;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.enemy {
+    text-align: left;
+    list-style-type: none;
+}
+
+#zard {
+    margin-top: -2em;
+    margin-left: 11.5em;
+    height: 70px;
+    width: 70px;
+}
+
+.screenmid {
+    display: flex;
+    justify-content: space-between;
+}
+
+#char {
+    width: 70px;
+    height: 70px;
+    margin-left: 2.5em;
+}
+
+.player {
+    text-align: right;
+    list-style-type: none;
+    margin-right: 3.5em;
+    margin-top: 2.4em;
+}
+
+.screenbottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 2.75em;
+}
+
+.buttons {
+    font-size: 1px;
+    opacity: 1;
+}
+
+.moves {
+    opacity: 0;
+}
+
+#gameboy {
+    width: 40em;
+}
+
+h5 {
+    margin-left: 3em;
+    margin-bottom: 3em;
+}

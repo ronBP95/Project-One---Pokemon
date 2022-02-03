@@ -4,7 +4,8 @@
   "description": "pokemon app",
   "main": "app.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node server.cjs"
   },
   "repository": {
     "type": "git",
