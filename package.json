@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "pokemon app",
   "main": "app.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "domino": "^2.1.6",
+    "express": "^4.17.2"
+  },
   "scripts": {
     "test": "npm test",
     "start": "node javascript/app.js"
@@ -25,5 +27,6 @@
   "engines": {
     "node": "16.13.2"
   },
+  "type": "module",
   "homepage": "https://github.com/ronBP95/Project-One---Pokemon#readme"
 }
