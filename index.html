@@ -62,7 +62,7 @@
         let pokemonChoice = Math.floor(Math.random() * (max - min) + min);
         let pokemonSrc = `./assets/Sprites/${pokemonChoice}.png`
         document.getElementById("zard").src = pokemonSrc
-        console.log(pokemonNames[pokemonChoice - 1])
+        console.log(pokemonNames[pokemonChoice - 1] + " has appeared")
         document.querySelector("#poke").innerText = pokemonNames[pokemonChoice - 1]
         // console.log("the js script in html works") <--- testing only
     }
