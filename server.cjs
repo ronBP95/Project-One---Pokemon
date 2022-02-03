@@ -11,9 +11,8 @@ app.get('/', function(req, res) {
 });
 
 // js, assets, css
-app.use(express.static(__dirname + 'public/css'));
-app.use('*/js',express.static('public/javascript'));
-app.use('*/images',express.static('public/assets'));
+app.use('/', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/assets')));
 
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
