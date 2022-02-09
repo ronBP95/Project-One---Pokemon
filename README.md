@@ -87,6 +87,6 @@ Here is some basic contact information:
 
 <br>
 
-Disclaimer: I borrowed the Pokemon assets from various png websites and have not monetized this application or its assets in any way.
+Disclaimer: I borrowed the Pokemon assets from various png websites and have not monetized this application or its assets in any way. These assets were strictly for personal use and learning purposes.
 
 Last updated: 2-8-2022
