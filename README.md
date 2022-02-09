@@ -4,6 +4,7 @@
 <br>
 
 View Site: [Project Pokemon](https://siasky.net/PACbyVZmnbuRHj3_1MqgJQ_5X9YEn8NVA0uiZ2JQ92A42g)
+
 *Note*: This project is currently being hosted on the Sia blockchain. Load times may vary.
 
 <br>
